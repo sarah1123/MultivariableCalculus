@@ -14,7 +14,25 @@
     level 3/.append style={level distance=2.35cm,sibling angle=45},
     level 4/.append style={level distance=1.5cm,sibling angle=50}]
     \node{Optimization}
-    child { node {Background definitions}
+        child[concept color=green!25] { node {Extreme value problems}
+        		child { node {Critical / stationary points}
+		child { node {Saddles}}
+		child { node {Local maxima}}
+		child { node {Local minima}}
+		}
+		child { node {Boundary points}}
+		}
+        child[concept color=red!25] { node {Constrained problems}
+       	 	child { node {Lagrange's method}
+			child { node {Lagrange's multiplier}}
+			child { node {Tangent condition}}
+		}
+		child { node {Substitution}
+			child { node {Parameterization of constraint curve or surface}}
+			child { node {Extreme value problems}}
+		}
+	}
+	child[concept color=blue!25] { node {Background definitions}
     	child { node {Functions}
         		child { node {Domain}
 			child { node {closed}}
@@ -41,24 +59,7 @@
 		child { node {Normal vector}}
 		}
 	}
-        child { node {Extreme value problems}
-        		child { node {Critical / stationary points}
-		child { node {Saddles}}
-		child { node {Local maxima}}
-		child { node {Local minima}}
-		}
-		child { node {Boundary points}}
-		}
-        child { node {Constrained problems}
-       	 	child { node {Lagrange's method}
-			child { node {Lagrange's multiplier}}
-			child { node {Tangent condition}}
-		}
-		child { node {Substitution}
-			child { node {Parameterization of constraint curve or surface}}
-			child { node {Extreme value problems}}
-		}
-	};
+	;
 \end{tikzpicture}
 }
 
