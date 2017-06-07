@@ -9,20 +9,17 @@
 \section{Optimization mindmap}
 \scalebox{1}{
 \begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept color=orange!40, 
-    level 1/.append style={level distance=6cm,sibling angle=120},
+    level 1/.append style={level distance=6cm,sibling angle=180},
     level 2/.append style={level distance=3.75cm,sibling angle=68},
     level 3/.append style={level distance=2.35cm,sibling angle=45},
     level 4/.append style={level distance=1.5cm,sibling angle=50}]
     \node{Optimization}
-        child[concept color=green!25] { node {Extreme value problems}
-        		child { node {Critical / stationary points}
-		child { node {Saddles}}
-		child { node {Local maxima}}
-		child { node {Local minima}}
+        child[concept color=red!25] { node {Single constraint problems}
+          	child[concept color=blue!25]  { node {Calculus ideas}
+		child { node {Tangent line, tangent plane}}
+		child { node {Normal vector}}
 		}
-		child { node {Boundary points}}
-		}
-        child[concept color=red!25] { node {Constrained problems}
+		child[concept color=blue!25] { node {Functions: Level sets}}
        	 	child { node {Lagrange's method}
 			child { node {Lagrange's multiplier}}
 			child { node {Tangent condition}}
@@ -32,34 +29,35 @@
 			child { node {Extreme value problems}}
 		}
 	}
-	child[concept color=blue!25] { node {Background definitions}
-    	child { node {Functions}
-        		child { node {Domain}
-			child { node {closed}}
-			child { node {bounded}}
-			child { node {interior point}}
+	        child[concept color=green!25] { node {Extreme value problems}
+        child[concept color=blue!25]  { node {Calculus ideas}
+		child { node {Partial derivatives}}
+		child { node {Continuous function}}
 		}
-      		child { node {Maximum, minimum}
-			child { node {Strict}}
-			child { node {Relative}}
-		}
-		child { node {Level sets}}
-		}
-		child { node {Necessary vs sufficient condition}}
-		child { node {Quadratic forms}
+	child[concept color=blue!25] { node {Necessary vs sufficient condition}}
+        	child { node {Critical / stationary points}
+		child[concept color=blue!25] { node {Quadratic forms}
 			child { node {Definite}}
 			child { node {Indefinite}}
 			child { node {Semidefinite}}
 			child { node {Discriminant}}
 		}
-	child { node {Calculus ideas}
-		child { node {Partial derivatives}}
-		child { node {Continuous function}}
-		child { node {Tangent line, tangent plane}}
-		child { node {Normal vector}}
+		child { node {Saddles}}
+		child { node {Local maxima}}
+		child { node {Local minima}}
 		}
-	}
-	;
+		child[concept color=blue!25] { node {Functions}
+        		child[concept color=blue!25] { node {Domain}
+			child { node {closed}}
+			child { node {bounded}}
+			child { node {interior point}}
+		}
+      		child[concept color=blue!25] { node {Maximum, minimum}
+			child { node {Strict}}
+			child { node {Relative}}
+		}}
+		child { node {Boundary points}}
+		};
 \end{tikzpicture}
 }
 
