@@ -4,8 +4,27 @@
 %\geometry{landscape}                % Activate for for rotated page geometry
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage{tikz}
+\usepackage[nonumberlist]{glossaries}
 \usepackage{amsmath, amssymb}
 \usetikzlibrary{mindmap}
+\makenoidxglossaries
+
+\newglossaryentry{tmp}{name={tmp}, description={}}
+
+\newglossaryentry{monomial}{name={monomial}, description={Term of the form $a_{mn}x^my^n$ where $m,n$ are non-negative integers and $a_{mn}$ is arbitrary (Courant and John)}}
+\newglossaryentry{tangent}{name={tangent}, description={A tangent line to a function $f(x)$ at a point $a$ has equation $y = f(a) + (x-a)f'(a)$.  A tangent plane to a function
+$f(x,y)$ at a point $(a,b)$ has equation $z = f(a,b) + (x-a)f_x(a,b) + (y-a)f_y(a,b)$.  The tangent is a linear function with matching position and slope to the original function at the point of tangency (Wolfram MathWorld)}}
+\newglossaryentry{directional derivative}{name={directional derivative}, description={The \emph{derivative in the direction $\vec{v}$} is the rate of change of $f$ at the point $(x,y)$ with
+respect to distance as we leave $(x,y)$ along the ray in the direction of $\vec{v}$.  The \emph{directional derivative} is a linear combination of the derivatives $f_x$ and $f_y$ in the $x$- and $y$- directions with the coefficients $\cos \alpha$ and $\sin \alpha$ where $\alpha$ is the angle the vector $\vec{v}$ makes with the $x$-axis (Courant and John) }}
+\newglossaryentry{degree}{name={degree}, description={The \emph{degree of a monomial} $a_{mn}x^my^n$ is the sum $m+n$ of the exponents of the variables appearing in it (given that $a_{mn} \neq 0$).  The \emph{degree of a polynomial} written as a linear combination of monomials is the highest degree of the monomial terms (Courant and John, Wikipedia)}}
+\newglossaryentry{form}{name={form}, description={A \emph{homogeneous polynomial}, or a \emph{form}, is a polynomial consisting of monomials which all have the same degree $N$.  For example, $x^2 + 4 x y$ is a quadratic form (Courant and John)}}
+\newglossaryentry{partial derivative}{name={partial derivative}, description={The \emph{partial derivative of $f(x,y)$ with respect to $x$} at the point $(x_0, y_0)$ is $\lim\limits_{h\rightarrow 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h}$, denoted $\frac{\partial f}{\partial x}$ with the round letter $\partial$ (Courant and John) }}
+\newglossaryentry{order}{name={order}, description={Consider a function $\phi(h,k)$ which tends to $0$ as $h$ and $k$ do.  Let $\rho = \sqrt{h^2+k^2}$.  A function $\phi(h,k)$ vanishes as $\rho \rightarrow 0$ to at least the same order as $\rho$ provided there exists a constant $C$ independent of $h$ and $k$ such that $\left\vert\frac{\phi(h,k)}{\rho}\right\vert \leq C$ holds for all sufficiently small values of $\rho$.  We write $\phi(h,k) = O(\rho)$.  More generally, if a comparison function $\omega(h,k)$ is defined for all nonzero values of $(h,k)$ in a sufficiently small circle about the origin and is not equal to $0$ then $\phi(h,k)$ \emph{vanishes to at least the same order as $\omega(h,k)$} 
+as $\rho \rightarrow 0$ if for some suitably chosen constant $C$ the relation $\left\vert\frac{\phi(h,k)}{\omega(h,k)}\right\vert \leq C$ holds in a neighborhood of the point $(0,0)$.  We write $\phi(h,k) = O(\omega(h,k))$ (Courant and John)}}
+\newglossaryentry{differentiable}{name={differentiable}, description={The function $u = f(x,y)$ is called \emph{differentiable} at the point $(x,y)$ if it can be 
+approximated in the neighborhood of this point by a linear function.  That is, if $f(x+h, y+k) = Ah +Bk +C + \epsilon\sqrt{h^2+k^2}$ where $A,B,C$ are independent of the variables $h$ and $k$, and $\epsilon$ tends to $0$ as $h$ and $k$ do (Courant and John) }}
+
+
 \begin{document}
 \section{Partial differentiation mindmap}
 \scalebox{1}{
@@ -21,32 +40,26 @@
 		child { node {Normal vector}}
 		}
 		child[concept color=blue!25] { node {Functions: Level sets}}
-       	 	child { node {Lagrange's method}
-			child { node {Lagrange's multiplier}}
-			child { node {Tangent condition}}
-		}
-		child { node {Substitution}
-			child { node {Parameterization of constraint curve or surface}}
-			child { node {Extreme value problems}}
+       	 	child { node {\gls{directional derivative}}
+			child { node {Linear combination}}
+			child { node {\gls{partial derivative}, $\frac{\partial f}{\partial x}$}}
 		}
 	}
 	        child[concept color=green!25] { node {Function approximations}
-        child[concept color=blue!25]  { node {Calculus ideas}
-		child { node {Partial derivatives}}
-		child { node {Continuous function}}
+        child[concept color=blue!25]  { node {Definitions}
+		child { node {\gls{tangent}}}
+		child { node {\gls{degree} of a \gls{monomial}}}
+		child { node {Homogeneous polynomial (\gls{form})}}
+		child { node {\gls{order} to which a function vanishes}}
 		}
-	child[concept color=blue!25] { node {Necessary vs sufficient condition}}
-        	child { node {Critical / stationary points}
-		child[concept color=blue!25] { node {Quadratic forms}
-			child { node {Definite}}
-			child { node {Indefinite}}
-			child { node {Semidefinite}}
-			child { node {Discriminant}}
+	%child[concept color=blue!25] { node {Necessary vs sufficient condition}}
+        	child { node {Linear approximations}
+		child{ node {Tangent plane}
 		}
-		child { node {Saddles}}
-		child { node {Local maxima}}
-		child { node {Local minima}}
+		child { node {\gls{differentiable}}}
+		child { node {Differential, $f_x \Delta x +f_y \Delta y$.}}
 		}
+		child { node {Quadratic approximations}}
 		child[concept color=blue!25] { node {Functions}
         		child[concept color=blue!25] { node {Domain}
 			child { node {closed}}
@@ -57,10 +70,12 @@
 			child { node {Strict}}
 			child { node {Relative}}
 		}}
-		child { node {Boundary points}}
 		}
 		 child[concept color=green!25] { node {Instantaneous rate of change along a path}};
 \end{tikzpicture}
 }
 
+\printnoidxglossaries
+% Glossary instruction:
+% http://mirror.unl.edu/ctan/macros/latex/contrib/glossaries/glossariesbegin.pdf
 \end{document}
