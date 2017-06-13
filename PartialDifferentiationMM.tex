@@ -23,6 +23,10 @@ respect to distance as we leave $(x,y)$ along the ray in the direction of $\vec{
 as $\rho \rightarrow 0$ if for some suitably chosen constant $C$ the relation $\left\vert\frac{\phi(h,k)}{\omega(h,k)}\right\vert \leq C$ holds in a neighborhood of the point $(0,0)$.  We write $\phi(h,k) = O(\omega(h,k))$ (Courant and John)}}
 \newglossaryentry{differentiable}{name={differentiable}, description={The function $u = f(x,y)$ is called \emph{differentiable} at the point $(x,y)$ if it can be 
 approximated in the neighborhood of this point by a linear function.  That is, if $f(x+h, y+k) = Ah +Bk +C + \epsilon\sqrt{h^2+k^2}$ where $A,B,C$ are independent of the variables $h$ and $k$, and $\epsilon$ tends to $0$ as $h$ and $k$ do (Courant and John) }}
+\newglossaryentry{linear}{name={linear}, description={A linear function is a polynomial of degree one ($u = ax + b y + c$ where $a,b,c$ are constants).  (Courant and John)}}
+\newglossaryentry{continuous}{name={continuous}, description={Roughly speaking: the function $u = f(x,y)$ is continuous at the point $(x_0, y_0)$ when the value of $f(x,y)$ is close to the value of $f(x_0,y_0)$ for $(x,y)$ close to $(x_0,y_0)$.  To make this precise: If $f$ has domain $R$ and $P_0 = (x_0, y_0)$ is a point in $R$ then $r$ is continuous at $P_0$ if for every $\epsilon > 0 $ there exists a $\delta > 0$ such that $\vert f(P) - f(P_0) \vert = \vert f(x,y) - f(x_0, y_0) \vert < \epsilon$ for all $P = (x,y)$ in $R$ within a $\delta$-neighborhood of $P_0$ (meaning that $d(P,P_0) = \sqrt{(x-x_0)^2+(y-y_0)^2} < \delta$).  Note that the sum, the product, and the difference of two continuous functions are also continuous.  The quotient requires more care to avoid zeros of the denominator. (Courant and John) }}
+\newglossaryentry{limit}{name={limit}, description={Suppose $f(x,y)$ is a function with domain $R$ and $P_0 = (x_0,y_0)$ is a point in the closure or $R$.  We say $f$ \emph{has the limit $L$ for $(x,y)$ tending to $(x_0, y_0)$}, written $\lim\limits_{(x,y)\rightarrow(x_0,y_0)} f(x,y) = L$ or $\lim\limits_{P\rightarrow P_0} f(P) = L$ if
+for every $\epsilon > 0 $ we can find a $\delta$-neighborhood of $P_0$ (meaning points $P$ where $d(P,P_0) = \sqrt{(x-x_0)^2+(y-y_0)^2} < \delta$) such that $\vert f(P) - L\vert = \vert f(x,y) - L\vert < \epsilon$ for all $P = (x,y)$ in that neighborhood and belonging to $R$.  (Courant and John)}}
 
 
 \begin{document}
@@ -35,32 +39,37 @@ approximated in the neighborhood of this point by a linear function.  That is, i
     level 4/.append style={level distance=1.5cm,sibling angle=50}]
     \node{Derivatives of functions $f: \mathbb{R}^n \rightarrow \mathbb{R}$}
         child[concept color=red!25] { node {Instantaneous rate of change in an arbitrary spatial direction}
-          	child[concept color=blue!25]  { node {Calculus ideas}
-		child { node {Tangent line, tangent plane}}
-		child { node {Normal vector}}
+          	child[concept color=blue!25]  { node {Terms}
+		child { node {slope}}
+		child { node {dot product}}
+		child { node {\gls{limit}}}
+		child { node {bounded}}
+		child { node {\gls{continuous}}}
 		}
-		child[concept color=blue!25] { node {Functions: Level sets}}
+		%child[concept color=blue!25] { node {Functions: Level sets}}
        	 	child { node {\gls{directional derivative}}
 			child { node {Linear combination}}
 			child { node {\gls{partial derivative}, $\frac{\partial f}{\partial x}$}}
 		}
 	}
 	        child[concept color=green!25] { node {Function approximations}
-        child[concept color=blue!25]  { node {Definitions}
+        child[concept color=blue!25]  { node {Terms}
 		child { node {\gls{tangent}}}
 		child { node {\gls{degree} of a \gls{monomial}}}
 		child { node {Homogeneous polynomial (\gls{form})}}
 		child { node {\gls{order} to which a function vanishes}}
 		}
 	%child[concept color=blue!25] { node {Necessary vs sufficient condition}}
-        	child { node {Linear approximations}
+        	child { node {\gls{linear} approximations}
 		child{ node {Tangent plane}
 		}
 		child { node {\gls{differentiable}}}
 		child { node {Differential, $f_x \Delta x +f_y \Delta y$.}}
 		}
 		child { node {Quadratic approximations}}
-		child[concept color=blue!25] { node {Functions}
+		}
+		 child[concept color=green!25] { node {Instantaneous rate of change along a path}
+		 		child[concept color=blue!25] { node {Functions}
         		child[concept color=blue!25] { node {Domain}
 			child { node {closed}}
 			child { node {bounded}}
@@ -70,8 +79,7 @@ approximated in the neighborhood of this point by a linear function.  That is, i
 			child { node {Strict}}
 			child { node {Relative}}
 		}}
-		}
-		 child[concept color=green!25] { node {Instantaneous rate of change along a path}};
+		};
 \end{tikzpicture}
 }
 
